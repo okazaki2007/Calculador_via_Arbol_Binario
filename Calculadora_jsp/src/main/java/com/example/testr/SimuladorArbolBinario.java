@@ -6,7 +6,7 @@ import java.util.Stack;
 
 /**
  *
- * @author ploks
+ *
  */
 public class SimuladorArbolBinario {
 
