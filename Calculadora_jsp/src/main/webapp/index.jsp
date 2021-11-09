@@ -1,21 +1,64 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
-<%@ page import="arbolgrafico.eval" %>
+
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Calculadora</title>
 </head>
-<body>
+<div>
 <div align="center"/>
-<h1>Calculadora web</h1>
-<form action="HelloServlet" method="doPost">
-    <p>
-        Expresion de entrada <input type="String" name="a" required />
-    </p>
-    <p>
-        <button type="submit">Calcular </button>
+<h1>Buscar resultado de expresion
+</h1>
+
+<form method="post" action="Resultado.jsp">
+    <p>Expresion aritmetrica  <input name="expresion" type="String" >
     </p>
 
+    <p><input type="submit" value="Calcular" onclick="window.location.href='Resultado.jsp'"> </p>
+
+
+</form>
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+</body>
+
+<body style="background: url(images/board1.jpg)"></body>
 
 
 
@@ -23,7 +66,11 @@
 </div>
 
 
-</form>
-<br/>
+
+
+
+
 </body>
+
+
 </html>
