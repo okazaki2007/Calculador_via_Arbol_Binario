@@ -488,12 +488,5 @@ public class Arbol {
     
     
     
-    //dibujar arbol
-    /*
-     public JPanel getdibujo() {
-       // return new ArbolExpresionGrafico(this);
-     //  return new ArbolExpresionGrafico(this);
-       
-    }
-*/
+
 }
