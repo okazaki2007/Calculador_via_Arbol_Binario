@@ -1,20 +1,30 @@
 
-package com.example.testr;
+package com.example.calculadora_final;
 
 import java.util.ArrayList;
 import java.util.Stack;
 
 /**
  *
- *
+ * @author Jeff, Juan Quesada
  */
 public class SimuladorArbolBinario {
 
 
      ArbodeExpresiones miArbol = new ArbodeExpresiones();
 
+    /**
+     * Metodo constructor
+     */
+
     public SimuladorArbolBinario() {
     }
+
+    /**
+     * Metodo que insterta dato en el arbol
+     * @param dato -- dato a instertar
+     * @return arbol con el dato insertado
+     */
 
     public boolean insertar(String dato) {
      //  return (this.miArbol.agregar(dato));
@@ -30,13 +40,11 @@ public class SimuladorArbolBinario {
     }
 
 
-    public String borrar(Integer dato) {
-       // Integer x = this.miArbol.borrar(dato);
-       // if (x == null) {
-            return ("No existe el dato en el arbol");
-      //  }
-      //  return ("Borrado el dato: " + x.toString());
-    }
+
+    /**
+     * Metodo que retorna la lista de los nodos del arbol en forma string en preorden
+     * @return Lista de nodos en preorden
+     */
 
   public String preOrden() {
       String it = this.miArbol.getPreOrden(miArbol.getRaiz());
@@ -46,6 +54,10 @@ public class SimuladorArbolBinario {
 
 
 
+    /**
+     * Metodo que retorna la lista de los nodos del arbol en forma string en postorden
+     * @return Lista de nodos en postorden concadenados en un String
+     */
     public String inOrden() {
         String it = this.miArbol.getInorden(miArbol.getRaiz());//el problema esta aqui
         return it;
@@ -55,7 +67,10 @@ public class SimuladorArbolBinario {
 
 
 
-
+    /**
+     * Metodo que retorna la lista de nodos en forma string  en  inorden
+     * @return Lista de nodos en orden inorden
+     */
 
     public String posOrden() {
        String it = this.miArbol.getPostorden(miArbol.getRaiz());
@@ -64,6 +79,11 @@ public class SimuladorArbolBinario {
     }
 
 
+    /**
+     * Metodo que se encarga de evaluar el string en si
+     * @param a -- String
+     * @return resutlado de la operacion
+     */
     public static Double calculation(String a)
     {
         Stack<Double> values=new Stack<Double>();
@@ -99,6 +119,14 @@ public class SimuladorArbolBinario {
 
         return values.pop();
     }
+
+    /**
+     * Metodo que se encarga de la operacion en si
+     * @param op -- String operando
+     * @param b -- Segundo Numero de la operacion
+     * @param a -- Primer numero en la operacion
+     * @return Resultado de la operacion
+     */
     public static double calculate(char op,double b,double a)
     {
         switch (op)
@@ -123,6 +151,13 @@ public class SimuladorArbolBinario {
         }
         return 0;
     }
+
+    /**
+     * Metodo que revisa la prioridad de los operandos
+     * @param op1 -- operando 1
+     * @param op2 -- operando 2
+     * @return True si los operandos estan en orden de prioridad
+     */
     public static boolean check(char op1,char op2)
     {
         if (op2 == '(' || op2 == ')')

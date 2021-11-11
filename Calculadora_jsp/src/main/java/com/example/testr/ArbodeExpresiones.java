@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example.testr;
+package com.example.calculadora_final;
 
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
 /**
- * Clase para generar arboles binarios a partir de expresiones aritmeticas
- * @author
+ *Clase para generar arboles binarios a partir de expresiones aritmeticas
+ * @author  Jeff
  * @version 1a. ed.
  */
 public class ArbodeExpresiones {
@@ -33,9 +32,6 @@ public class ArbodeExpresiones {
 
 
 	public ArbodeExpresiones() {
-
-		//pOperandos = new Pila();
-		//pOperadores = new Pila();
 		blanco = " \t";
 		operadores = ")+-*/%^(";  //acomodados por precedencia;
 	}
@@ -48,19 +44,37 @@ public class ArbodeExpresiones {
 	 */
 	private Nodo1 raiz;
 
+	/*** Metodo para obtener acceso a la raiz del arbol
+	 * @return this.raiz -- raiz del arbol
+	 */
 	public Nodo1 getRaiz() {
 		return this.raiz;
 	}
+
+	/**
+	 * Metodo para modificar la raiz del arbol
+	 * @param r -- nuevo valor para la raiz del arbol
+	 */
 
 	public void setRaiz(Nodo1 r) {
 		this.raiz = r;
 	}
 
+	/**
+	 * Metodo para construir el arbol
+	 * @param con -- Expresion del nodo
+	 * @return True (1)
+	 */
 	public boolean contruir(String con) {
 		construirArbol(con);
 		return true;
 	}
 	static String u;
+	/**
+	 *  Metodo que construye el arbol en si
+	 * @param expresion -- expresion matematica del arbol
+	 * @return raiz -- nodo principal del arbol
+	 */
 
 	public Nodo1 construirArbol(String expresion) {
 		u="";
@@ -115,7 +129,7 @@ public class ArbodeExpresiones {
 		return raiz;
 	}
 
-	/*
+	/**
 	 * Metodo privado para almacenar en la pila un subarbol
 	 */
 	private void guardarSubArbol() {
@@ -130,7 +144,7 @@ public class ArbodeExpresiones {
 	public ArrayList impNiveles(Nodo1 reco, int nivel, ArrayList l) {
 		if (reco != null) {
 			impNiveles(reco.getNodoIzquierdo(), nivel + 1, l);
-			l.add( " Nivel "+ nivel+" = "+reco.getInformacion());
+			l.add( " Nivel "+ nivel+": "+reco.getInformacion());
 			impNiveles(reco.getNodoDerecho(), nivel + 1, l);
 		}
 		return l;
@@ -139,13 +153,19 @@ public class ArbodeExpresiones {
 	 * Metodo para imprimir un arbol en inorden
 	 *
 	 * @param n -- nodo raiz
-	 * @return
+	 * @return imprime(n)
 	 */
 	static String r;
 	public String getInorden(Nodo1 n){
 		r="";
 		return imprime(n);
 	}
+
+	/**
+	 * Metodo para imprimir nodo
+	 * @param n -- Nodo
+	 * @return String r
+	 */
 	public String imprime(Nodo1 n) {
 		if (n != null) {
 
@@ -166,17 +186,21 @@ public class ArbodeExpresiones {
 
 
 	/**
-	 * ((3-4)*(3+5))
-	 * (((a+b)+c)+d)
 	 * Metodo para imprimir un arbol en postorden
 	 *
 	 * @param n -- nodo raiz
-	 * @return
+	 * @return imprimePos(n)
 	 */
 	public String getPostorden(Nodo1 n){
 		System.out.print("\n");
 		r="";
 		return imprimePos(n);}
+
+	/**
+	 * Metodo para imprimir el nodo de un arbol en postorden
+	 * @param n -- nodo
+	 * @return r
+	 */
 
 	public String imprimePos(Nodo1 n) {
 		if (n != null) {
@@ -193,11 +217,17 @@ public class ArbodeExpresiones {
 	 * Metodo para imprimir un arbol en preorden
 	 *
 	 * @param n -- nodo raiz
-	 * @return
+	 * @return ImprimePre(n) -- r
 	 */
 	public String getPreOrden(Nodo1 n){
 		r="";
 		return imprimePre(n);}
+
+	/**
+	 * Metodo para imprimir el nodo del arbol en preorden
+	 * @param n -- Nodo
+	 * @return r
+	 */
 
 	public String imprimePre(Nodo1 n) {
 		if (n != null) {

@@ -1,4 +1,9 @@
-package com.example.testr;
+package com.example.calculadora_final;
+
+/**
+ *Clase para obtener datos gestados en la pagina
+ * @author  Jeff
+ */
 
 public class result {
     static String expresion="";
