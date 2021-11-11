@@ -1,5 +1,5 @@
 
-<%@ page import="com.example.testr.*" %>
+<%@ page import="com.example.calculadora_final.*" %>
 <%@ page import="java.io.IOException" %>
 
 
@@ -24,18 +24,18 @@
 <%
 
 
-
-
-
     try {
-        SimuladorArbolBinario simulador = new SimuladorArbolBinario();
-        result r=new result();
-        Fecha w=new Fecha();
-        String num = request.getParameter("expresion");
+        SimuladorArbolBinario simulador = new SimuladorArbolBinario();//Inicializar clase para construccion de arbol
+
+        result r=new result();//Inicializar clase para utilizar metodo de guardado de datos
+
+        Fecha w=new Fecha();//Inicializar clase para utilizar metodo de obtencion fecha y hora
+
+        String num = request.getParameter("expresion");//Obtiene variable de entrada en clase index.jsp
 
         if (num != null) {
 
-            simulador.insertar(num);
+            simulador.insertar(num);//insercion de expresion en el arbol para la construccion del mismo
 
             out.println("El inorden es: " + simulador.inOrden());
             out.println("<br> <br>" + "El preorden es: " + simulador.preOrden());
@@ -43,25 +43,27 @@
             out.println("<br><br>" + "Los niveles son: " + simulador.Nivel());
 
 
-            String t = simulador.inOrden();
-            double ou = simulador.calculation(t + ".0");
-            double ot = simulador.calculation(num + ".0");
+            String t = simulador.inOrden();// Recorrido subarbol izquierdo, raiz, subarbol derecho
+
+            double ou = simulador.calculation(t + "+0.0");//Evaluacion de la expresion con recorrido recursivo
+            double ot = simulador.calculation(num + "+0.0");//Metodo de evaluacion directa para evitar errores
             String m = ot + "";
 
-            r.setExpresion(num);
-            r.setResultado(m);
+
+            r.setExpresion(num);//Guarda expresion para luego presentarla en una tabla
+            r.setResultado(m);//Guarda resultado para  luego mostrarla en una tabla
 
 
-           Writer writer=new Writer();
+           Writer writer=new Writer();// Escribe en el .CSV los datos obtenidos
            writer.Write(num,m,w.getFormatoFecha(),w.getFormatoHora());
 
 
 
         if(ou==ot) {
-                out.println("<br>"+ "El resultado de la expresion recorriendo el arbol de forma recursiva es correcto y el resultado es: "+ou);
+                out.println("<br> <br>"+ "El resultado de la expresion recorriendo el arbol de forma recursiva es correcto y el resultado es: "+ou);
 
             }else{
-                out.println("<br>"+"El resultado de la expresion recorriendo el arbol de forma recursiva no se concreta por lo que se evalua con el metodo de evaluacion de expresiones y el resultado es: "+ ot);
+                out.println("<br> <br>"+"El resultado de la expresion recorriendo el arbol de forma recursiva no se concreta por lo que se evalua con el metodo de evaluacion de expresiones y el resultado es: "+ ot);
 
             }
 
@@ -76,7 +78,7 @@
 
     }catch (Exception e){
         System.err.println(e.getMessage());
-        out.print("<br> <br> <br> <br> <br> <br> <br>"+"El valor ingresado no pertenece a una expresion aritmetrica de numeros");
+        out.print("<br> <br> <br>  "+"El valor ingresado no pertenece a una expresion aritmetrica de numeros");
     }
 
 %>

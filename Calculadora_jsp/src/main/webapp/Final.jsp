@@ -1,5 +1,4 @@
-<%@ page import="com.example.testr.result" %>
-<%@ page import="com.example.testr.Fecha" %>
+<%@ page import="com.example.calculadora_final.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

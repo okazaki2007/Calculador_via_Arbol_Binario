@@ -13,7 +13,9 @@
 <form method="post" action="Resultado.jsp">
     <p>Expresion aritmetrica  <input name="expresion" type="String" >
     </p>
-
+    <%
+        //envia datos a pagina resultado.jsp
+    %>
     <p><input type="submit" value="Calcular" onclick="window.location.href='Resultado.jsp'"> </p>
 
 
